@@ -4,6 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { Hello2Component } from './hello2/hello2.component';
 import {HelloComponent} from './hello/hello.component';
+import { SettingsModule } from '../settings/settings.module';
+import {FooService} from './foo.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -12,9 +15,11 @@ import {HelloComponent} from './hello/hello.component';
     HelloComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    SettingsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ /*FooService*/ ],
     bootstrap: [AppComponent /*, AvigailComponent*/]
 })
 export class AppModule { }
