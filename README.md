@@ -14,6 +14,7 @@
 
 ### EX Login Register
 
+- https://www.youtube.com/watch?v=8BtdI3-ateM
 - Your app will contain the following components:
   - AppComponent
   - LoginComponent
