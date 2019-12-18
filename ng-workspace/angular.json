@@ -509,6 +509,124 @@
           }
         }
       }
+    },
+    "register-example": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/register-example",
+      "sourceRoot": "projects/register-example/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/register-example",
+            "index": "projects/register-example/src/index.html",
+            "main": "projects/register-example/src/main.ts",
+            "polyfills": "projects/register-example/src/polyfills.ts",
+            "tsConfig": "projects/register-example/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/register-example/src/favicon.ico",
+              "projects/register-example/src/assets"
+            ],
+            "styles": [
+              "projects/register-example/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/register-example/src/environments/environment.ts",
+                  "with": "projects/register-example/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "register-example:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "register-example:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "register-example:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/register-example/src/test.ts",
+            "polyfills": "projects/register-example/src/polyfills.ts",
+            "tsConfig": "projects/register-example/tsconfig.spec.json",
+            "karmaConfig": "projects/register-example/karma.conf.js",
+            "assets": [
+              "projects/register-example/src/favicon.ico",
+              "projects/register-example/src/assets"
+            ],
+            "styles": [
+              "projects/register-example/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/register-example/tsconfig.app.json",
+              "projects/register-example/tsconfig.spec.json",
+              "projects/register-example/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/register-example/e2e/protractor.conf.js",
+            "devServerTarget": "register-example:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "register-example:serve:production"
+            }
+          }
+        }
+      }
     }},
   "defaultProject": "hello-world"
 }

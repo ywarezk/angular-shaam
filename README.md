@@ -11,6 +11,9 @@
 - Angular Architecture
   - Video lecture: https://www.youtube.com/watch?v=TQ-0stE4Y0o
 
+- Angular components
+  - https://www.youtube.com/watch?v=AR2xuG0Rid8
+
 
 ### EX Login Register
 
