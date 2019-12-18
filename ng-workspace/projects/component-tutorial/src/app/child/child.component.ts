@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-child',
-  template: `
+    // exportAs: 'yarivChild',
+    selector: 'app-child',
+    template: `
     <p>
       child works!
     </p>

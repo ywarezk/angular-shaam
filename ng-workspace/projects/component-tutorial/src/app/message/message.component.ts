@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
+    exportAs: 'stamMessage',
   selector: 'app-message',
   template: `
     <h1>
@@ -10,6 +11,9 @@ import { Component, OnInit, Input } from '@angular/core';
     <h1>
         We got this from the parent: {{message}} {{myNumber}}
     </h1>
+    <button (click)="sendMessageToParent()">
+        Release an event to the listeners
+    </button>
   `,
   styleUrls: ['./message.component.css']
 })
@@ -21,9 +25,16 @@ export class MessageComponent implements OnInit {
     @Input()
     myNumber : number;
 
-  constructor() { }
+    @Output('onMessage')
+    messageEvent : EventEmitter<string> = new EventEmitter();
 
-  ngOnInit() {
-  }
+    constructor() { }
+
+    ngOnInit() {
+    }
+
+    sendMessageToParent = () => {
+        this.messageEvent.emit('hello from child message');
+    }
 
 }
