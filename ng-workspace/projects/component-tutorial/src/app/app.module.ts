@@ -8,6 +8,9 @@ import { MessageComponent } from './message/message.component';
 import { TrvComponent } from './trv/trv.component';
 import { TransExampleComponent } from './trans-example/trans-example.component';
 import { LifecycleExampleComponent } from './lifecycle-example/lifecycle-example.component';
+import { DirectivesExampleComponent } from './directives-example/directives-example.component';
+import { PipeExampleComponent } from './pipe-example/pipe-example.component';
+import { SnakePipe } from './snake.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { LifecycleExampleComponent } from './lifecycle-example/lifecycle-example
     MessageComponent,
     TrvComponent,
     TransExampleComponent,
-    LifecycleExampleComponent
+    LifecycleExampleComponent,
+    DirectivesExampleComponent,
+    PipeExampleComponent,
+    SnakePipe
   ],
   imports: [
     BrowserModule, FormsModule

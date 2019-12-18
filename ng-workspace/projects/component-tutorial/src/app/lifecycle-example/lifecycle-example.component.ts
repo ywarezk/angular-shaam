@@ -1,4 +1,6 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, OnChanges, SimpleChanges, Input } from '@angular/core';
+import { MessageComponent } from '../message/message.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-lifecycle-example',
@@ -19,21 +21,56 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
     <p>
         {{title}}
     </p>
+    <!-- <button (click)="...">
+    </button> -->
+    <!-- <app-child () -->
+
+    <app-message #appMessage></app-message>
   `,
   styleUrls: ['./lifecycle-example.component.css']
 })
-export class LifecycleExampleComponent implements OnInit, OnDestroy {
+export class LifecycleExampleComponent implements OnInit, OnDestroy, OnChanges {
     title = "hello";
     // @Input
+
+    @Input()
+    hello;
+
+    @ViewChild('appMessage', {static: true})
+    appMessage : MessageComponent; 
+
+    private _intervalId : any;
+    private _sub : Subscription;
 
     constructor() { }
 
     ngOnInit() {
         // this.title = 'hello';
+        this._intervalId = setInterval(() => {
+
+        }, 1000);
+
+        // websocket
+        // appChild.customEvent.subscribe()
+
+        // document.getElementById('stam')
+
+        this._sub = this.appMessage.messageEvent.subscribe(() => {
+
+        })
+
     }
 
     ngOnDestroy() {
+        clearInterval(this._intervalId);
+        this._sub.unsubscribe();
+    }
 
+    // when @Input change
+    // ===
+    // {hello: {previousValue ..., currentValue}}
+    ngOnChanges(changes: SimpleChanges): void {
+        
     }
 
     sayHello = () => {
