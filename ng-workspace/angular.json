@@ -627,6 +627,124 @@
           }
         }
       }
+    },
+    "rxjs-example": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/rxjs-example",
+      "sourceRoot": "projects/rxjs-example/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/rxjs-example",
+            "index": "projects/rxjs-example/src/index.html",
+            "main": "projects/rxjs-example/src/main.ts",
+            "polyfills": "projects/rxjs-example/src/polyfills.ts",
+            "tsConfig": "projects/rxjs-example/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/rxjs-example/src/favicon.ico",
+              "projects/rxjs-example/src/assets"
+            ],
+            "styles": [
+              "projects/rxjs-example/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/rxjs-example/src/environments/environment.ts",
+                  "with": "projects/rxjs-example/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "rxjs-example:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "rxjs-example:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "rxjs-example:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/rxjs-example/src/test.ts",
+            "polyfills": "projects/rxjs-example/src/polyfills.ts",
+            "tsConfig": "projects/rxjs-example/tsconfig.spec.json",
+            "karmaConfig": "projects/rxjs-example/karma.conf.js",
+            "assets": [
+              "projects/rxjs-example/src/favicon.ico",
+              "projects/rxjs-example/src/assets"
+            ],
+            "styles": [
+              "projects/rxjs-example/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/rxjs-example/tsconfig.app.json",
+              "projects/rxjs-example/tsconfig.spec.json",
+              "projects/rxjs-example/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/rxjs-example/e2e/protractor.conf.js",
+            "devServerTarget": "rxjs-example:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "rxjs-example:serve:production"
+            }
+          }
+        }
+      }
     }},
   "defaultProject": "hello-world"
 }
