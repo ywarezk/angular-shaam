@@ -745,6 +745,124 @@
           }
         }
       }
+    },
+    "forms-tutorial": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/forms-tutorial",
+      "sourceRoot": "projects/forms-tutorial/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/forms-tutorial",
+            "index": "projects/forms-tutorial/src/index.html",
+            "main": "projects/forms-tutorial/src/main.ts",
+            "polyfills": "projects/forms-tutorial/src/polyfills.ts",
+            "tsConfig": "projects/forms-tutorial/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/forms-tutorial/src/favicon.ico",
+              "projects/forms-tutorial/src/assets"
+            ],
+            "styles": [
+              "projects/forms-tutorial/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/forms-tutorial/src/environments/environment.ts",
+                  "with": "projects/forms-tutorial/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "forms-tutorial:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "forms-tutorial:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "forms-tutorial:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/forms-tutorial/src/test.ts",
+            "polyfills": "projects/forms-tutorial/src/polyfills.ts",
+            "tsConfig": "projects/forms-tutorial/tsconfig.spec.json",
+            "karmaConfig": "projects/forms-tutorial/karma.conf.js",
+            "assets": [
+              "projects/forms-tutorial/src/favicon.ico",
+              "projects/forms-tutorial/src/assets"
+            ],
+            "styles": [
+              "projects/forms-tutorial/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/forms-tutorial/tsconfig.app.json",
+              "projects/forms-tutorial/tsconfig.spec.json",
+              "projects/forms-tutorial/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/forms-tutorial/e2e/protractor.conf.js",
+            "devServerTarget": "forms-tutorial:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "forms-tutorial:serve:production"
+            }
+          }
+        }
+      }
     }},
   "defaultProject": "hello-world"
 }
