@@ -14,6 +14,24 @@
 - Angular components
   - https://www.youtube.com/watch?v=AR2xuG0Rid8
 
+- RXJS
+  - https://www.youtube.com/watch?v=rLPW1VowY1E
+
+- Angular Forms
+  - https://www.youtube.com/watch?v=GM6tidgA5zs
+
+- Angular Redux
+  - https://www.youtube.com/watch?v=h_VEq8yBTpg
+
+- EX Angular Redux
+  - https://www.youtube.com/watch?v=G6vd7gTNhQs
+
+- Angular DI
+  - https://www.youtube.com/watch?v=CQIAjrfLnQQ
+
+- Angular Change Detection
+  - https://www.youtube.com/watch?v=9nGjgZSVptk
+
 
 ### EX Login Register
 
@@ -37,4 +55,17 @@
 - TodoListComponent will send a get request to: https://academeez-login-ex.herokuapp.com/api/tasks
 - you need to pass in the headers the jwt token you got: Authorization: Bearer <token>
 - print the list of item you got from the server
+
+### EX Forms
+
+- Create a login form to enter email and password
+- Create two Login components
+  - LoginReactive - the login form should be created with reactive forms
+  - LoginTemplate - the login form should be created with template driven forms
+- the forms should have validation - email validation, password has min length, required both fields
+- upon validation errors the input should be bordered red and a proper error message should be written.
+- the forms should send a post request to https://academeez-login-ex.herokuapp.com/api/users/login  and should write at the bottom of the form if the login is success or fail
+- use bootstrap to design your form.
+
+
 
