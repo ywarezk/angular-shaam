@@ -16,4 +16,11 @@ export class TodoService {
     searchTasks = (searchTerm : string) => {
         return this._http.get(`https://nztodo.herokuapp.com/api/task/?format=json&search=${searchTerm}`);
     }
+
+    login = (email: string, password: string) => {
+        // ...
+        this._http.post('https://...', {email, password}).subscribe((jwtToken : string) => {
+            this.jwt.next(jwtToken);
+        })
+    }
 }

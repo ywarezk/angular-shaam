@@ -30,7 +30,7 @@ export class MessageReactiveComponent implements OnInit {
         address: new FormGroup({
             street: new FormControl(),
             city: new FormControl()
-        })
+        }, [Validators.required])
     }, [])
 
     messageForm2 = this._formBuilder.group({

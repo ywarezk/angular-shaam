@@ -2,21 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { TodoListComponent } from './todo-list/todo-list.component';
-import {HttpClientModule} from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { HeaderComponent } from './header/header.component';
+import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodoListComponent,
-    HeaderComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
-    FormsModule
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
